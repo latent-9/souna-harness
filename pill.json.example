@@ -1,0 +1,33 @@
+{
+  "$schema": "https://raw.githubusercontent.com/latent-9/souna-harness/main/schema.json",
+  "providers": {
+    "nim": {
+      "base_url": "https://integrate.api.nvidia.com/v1",
+      "api_key": "{env:NVIDIA_API_KEY}",
+      "models": ["z-ai/glm-5.3-flash", "meta/llama-3.3-70b-instruct"]
+    },
+    "openrouter": {
+      "base_url": "https://openrouter.ai/api/v1",
+      "api_key": "{env:OPENROUTER_API_KEY}",
+      "models": ["deepseek/deepseek-chat-v3.1:free", "qwen/qwen3-coder:free"]
+    },
+    "groq": {
+      "base_url": "https://api.groq.com/openai/v1",
+      "api_key": "{env:GROQ_API_KEY}",
+      "models": ["llama-3.3-70b-versatile"]
+    },
+    "ollama": {
+      "base_url": "http://localhost:11434/v1",
+      "models": ["llama3.2", "qwen3-coder"]
+    },
+    "vllm": {
+      "base_url": "http://localhost:8000/v1",
+      "models": ["meta-llama/Llama-3.3-70B-Instruct"]
+    },
+    "litellm": {
+      "base_url": "http://localhost:4000/v1",
+      "api_key": "{env:LITELLM_API_KEY}",
+      "models": ["gpt-4o-mini", "claude-sonnet-4"]
+    }
+  }
+}
