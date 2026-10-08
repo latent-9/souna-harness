@@ -3,6 +3,8 @@ package tools
 import (
 	"context"
 	"encoding/json"
+
+	"github.com/latent-9/souna-harness/internal/provider"
 )
 
 // Tool is one executable tool the model can call.
@@ -43,13 +45,13 @@ func (r *Registry) List() []Tool {
 }
 
 // Defs returns provider tool definitions for all registered tools.
-func (r *Registry) Defs() []map[string]any {
-	defs := make([]map[string]any, 0, len(r.tools))
+func (r *Registry) Defs() []provider.ToolDef {
+	defs := make([]provider.ToolDef, 0, len(r.tools))
 	for _, t := range r.tools {
-		defs = append(defs, map[string]any{
-			"name":        t.Name(),
-			"description": t.Description(),
-			"parameters":  t.Schema(),
+		defs = append(defs, provider.ToolDef{
+			Name:        t.Name(),
+			Description: t.Description(),
+			Schema:      t.Schema(),
 		})
 	}
 	return defs
